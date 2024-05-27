@@ -2,8 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/dialog_background">
+    android:background="@drawable/dialog_background"
+    android:padding="0dp">
 
     <TextView
         android:id="@+id/text_title"
@@ -13,7 +13,7 @@
         android:text="알림"
         android:textStyle="bold"
         android:background="#4ECB71"
-        android:padding="8dp"
+        android:padding="16dp"
         android:textColor="@android:color/white"
         android:gravity="center" />
 
@@ -31,23 +31,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="16dp"> <!-- 버튼 그룹에 패딩 설정 -->
 
         <Button
             android:id="@+id/btn_yes"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:backgroundTint="#4ECB71"
             android:textColor="@android:color/white"
             android:layout_weight="1"
+            android:layout_marginEnd="20dp"
             android:text="네"/>
 
         <Button
             android:id="@+id/btn_no"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:textColor="@android:color/white"
             android:layout_weight="1"
+            android:layout_marginStart="20dp"
             android:text="아니요"/>
     </LinearLayout>
 </LinearLayout>
