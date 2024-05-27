@@ -25,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="정말로 일정을 취소하시겠어요?"
+        android:text="일정을 유지한 채로 시간대만 수정할 수 있어요"
         android:textStyle="bold"
         android:paddingBottom="16dp"
         android:gravity="center"
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="20dp"
             android:background="@drawable/button_background"
-            android:text="네"/>
+            android:text="삭제하기"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_no"
@@ -64,6 +64,6 @@
             android:layout_marginStart="20dp"
             android:background="@drawable/button_background"
             android:backgroundTint="#E2E2E2"
-            android:text="아니요"/>
+            android:text="수정하기"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
