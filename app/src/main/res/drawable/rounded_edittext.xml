@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" /> <!-- 배경 색상 설정 -->
+    <corners android:radius="10dp" /> <!-- 모서리의 반지름 설정 -->
+    <stroke
+        android:width="3px"
+        android:color="#CCCCCC"/> <!-- border 색상 설정 -->
+</shape>
