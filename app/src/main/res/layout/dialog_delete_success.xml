@@ -2,18 +2,48 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/dialog_background"
+    android:padding="0dp">
 
     <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="알림"
+        android:textStyle="bold"
+        android:background="#4ECB71"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/text_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="삭제가 완료되었습니다"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="삭제가 완료되었습니다."
         android:textStyle="bold"
         android:paddingBottom="16dp"/>
 
-    <Button
-        android:id="@+id/btn_ok"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="확인"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_yes"
+            android:layout_width="match_parent"
+            android:layout_marginStart="111dp"
+            android:layout_marginEnd="111dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#4ECB71"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_background"
+            android:text="확인"/>
+
+    </LinearLayout>
 </LinearLayout>
