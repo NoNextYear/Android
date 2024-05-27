@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar" />
+    <style name="MyBase.TimePicker" parent="Theme.AppCompat.Light.Dialog">
+        <!-- NumberPicker divider color -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
 </resources>
