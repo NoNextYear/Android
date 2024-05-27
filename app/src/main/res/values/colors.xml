@@ -7,4 +7,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="selected_item_color">#4D4ECB71</color> <!-- 투명도가 30% 적용된 색상 -->
 </resources>

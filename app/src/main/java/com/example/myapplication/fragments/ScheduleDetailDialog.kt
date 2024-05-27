@@ -24,7 +24,7 @@ class ScheduleDetailDialog : DialogFragment() {
         val detailTime = view.findViewById<TextView>(R.id.detail_time)
         val optimalScore = view.findViewById<TextView>(R.id.optimal_score)
 
-        // 전달된 데이터를 기반으로 텍스트 설정 (필요시 Bundle을 통해 데이터 전달)
+        // Set the text based on the passed data
         detailDate.text = arguments?.getString("date") ?: "N/A"
         detailTime.text = arguments?.getString("time") ?: "N/A"
         optimalScore.text = arguments?.getString("score") ?: "N/A"
