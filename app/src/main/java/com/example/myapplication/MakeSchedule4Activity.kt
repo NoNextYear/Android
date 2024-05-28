@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,6 +17,7 @@ class MakeSchedule4Activity : AppCompatActivity() {
         val startTimeTextView: TextView = findViewById(R.id.select_start_time_layout)
         val endTimeTextView: TextView = findViewById(R.id.select_end_time_layout)
         val backButton: ImageButton = findViewById(R.id.back_btn)
+        val submitButton : AppCompatButton = findViewById(R.id.submit_button)
 
         val startTime = intent.getStringExtra("startTime")
         val endTime = intent.getStringExtra("endTime")
@@ -29,6 +31,10 @@ class MakeSchedule4Activity : AppCompatActivity() {
 
         backButton.setOnClickListener {
             val intent = Intent(this, MakeSchedule3Activity::class.java)
+            startActivity(intent)
+        }
+        submitButton.setOnClickListener{
+            val intent = Intent(this, MakeSchedule4CompleteActivity::class.java)
             startActivity(intent)
         }
     }
