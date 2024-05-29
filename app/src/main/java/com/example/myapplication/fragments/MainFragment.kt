@@ -53,6 +53,10 @@ class MainFragment : Fragment() {
             val dateStr = dateFormat.format(calendar.time)
             dateView.text = dateStr
 
+            // Set a fixed size for the dateView
+            dateView.width = resources.getDimensionPixelSize(R.dimen.date_view_size)
+            dateView.height = resources.getDimensionPixelSize(R.dimen.date_view_size)
+
             // Check if this date is today
             if (todayStr == todayFormat.format(calendar.time)) {
                 // Apply a blue circle background and white text color

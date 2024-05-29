@@ -112,7 +112,9 @@
                     android:text="14"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <!-- Repeat the above block for each day of the week -->
@@ -139,7 +141,9 @@
                     android:text="15"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <LinearLayout
@@ -164,7 +168,9 @@
                     android:text="16"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <LinearLayout
@@ -180,7 +186,9 @@
                     android:layout_height="wrap_content"
                     android:text="WED"
                     android:textSize="14sp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
 
                 <TextView
                     android:id="@+id/wednesdayDate"
@@ -189,7 +197,9 @@
                     android:text="17"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <LinearLayout
@@ -214,7 +224,9 @@
                     android:text="18"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <LinearLayout
@@ -239,7 +251,9 @@
                     android:text="19"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <LinearLayout
@@ -264,7 +278,9 @@
                     android:text="20"
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
 
