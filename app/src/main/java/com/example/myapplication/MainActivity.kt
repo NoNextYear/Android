@@ -6,7 +6,7 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.fragments.CalendarFragment
 import com.example.myapplication.fragments.ChatFragment
 import com.example.myapplication.fragments.FriendFragment
-import com.example.myapplication.fragments.HomeFragment
+import com.example.myapplication.fragments.MainFragment
 import com.example.myapplication.fragments.ScheduleFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
                             .replace(R.id.fl_container, scheduleFragment).commit()
                     }
                     R.id.navigation_home -> {
-                        val homeFragment = HomeFragment()
+                        val mainFragment = MainFragment()
                         supportFragmentManager.beginTransaction()
-                            .replace(R.id.fl_container, homeFragment).commit()
+                            .replace(R.id.fl_container, mainFragment).commit()
                     }
                     R.id.navigation_chat -> {
                         val chatFragment = ChatFragment()
