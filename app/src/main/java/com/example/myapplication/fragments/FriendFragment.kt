@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.adapter.Friend
 import com.example.myapplication.adapter.FriendAdapter
 import com.example.myapplication.databinding.FragmentFriendBinding
+import com.example.myapplication.model.Friend
 
 class FriendFragment : Fragment() {
 

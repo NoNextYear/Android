@@ -1,8 +1,10 @@
 package com.example.myapplication.adapter
 
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ItemFriendBinding
@@ -35,12 +37,11 @@ class FriendAdapter(private val friends: List<Friend>) :
 
         fun bind(friend: Friend) {
             binding.friendName.text = friend.name
-            binding.friendImage.setImageResource(friend.imageResId)
             if (friend.isSelected) {
-                binding.friendImage.setColorFilter(binding.root.context.getColor(R.color.selected_item_color))
+                binding.friendImage.setColorFilter(ContextCompat.getColor(binding.root.context, R.color.selected_item_color), PorterDuff.Mode.SRC_IN)
                 binding.checkImage.visibility = View.VISIBLE
             } else {
-                binding.friendImage.clearColorFilter()
+                binding.friendImage.setColorFilter(ContextCompat.getColor(binding.root.context, android.R.color.white), PorterDuff.Mode.SRC_IN)
                 binding.checkImage.visibility = View.GONE
             }
         }
