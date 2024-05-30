@@ -1,0 +1,97 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="상세보기"
+        android:textStyle="bold"
+        android:background="@drawable/textview_background"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날짜 및 시간"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="24년 5월 31일"
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/detail_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2:00PM ~ 4:00PM"
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/participants_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다음 인원이 참여 가능해요"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="8dp"/>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/participants_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp"
+        app:flexWrap="wrap"
+        app:justifyContent="space_between"/>
+
+    <TextView
+        android:id="@+id/optimal_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="활동하기 좋은 시간대에요"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/optimal_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최적점수는 99점이에요"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="120dp"
+        android:paddingBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_background_detail"
+
+        android:backgroundTint="#4ECB71"
+        android:textColor="@android:color/white"
+        android:text="확인"/>
+</LinearLayout>

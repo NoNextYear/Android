@@ -1,0 +1,4 @@
+<resources>
+    <!-- Other dimensions -->
+    <dimen name="date_view_size">40dp</dimen>
+</resources>
