@@ -1,5 +1,6 @@
 package com.example.myapplication.fragments
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         hideSystemBars()
         setupWeekCalendar()
+        applyCustomFont()
     }
 
     private fun setupWeekCalendar() {
@@ -69,6 +71,28 @@ class MainFragment : Fragment() {
             }
             calendar.add(Calendar.DAY_OF_MONTH, 1)
         }
+    }
+
+    private fun applyCustomFont() {
+        val customFont: Typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/bm_jua.ttf")
+
+        binding.todayScheduleTitle.typeface = customFont
+        binding.todaySchedule.typeface = customFont
+        binding.weatherTitle.typeface = customFont
+        binding.city.typeface = customFont
+        binding.temperature.typeface = customFont
+        binding.hour1.typeface = customFont
+        binding.temp1.typeface = customFont
+        binding.hour2.typeface = customFont
+        binding.temp2.typeface = customFont
+        binding.hour3.typeface = customFont
+        binding.temp3.typeface = customFont
+        binding.hour4.typeface = customFont
+        binding.temp4.typeface = customFont
+        binding.hour5.typeface = customFont
+        binding.temp5.typeface = customFont
+        binding.hour6.typeface = customFont
+        binding.temp6.typeface = customFont
     }
 
     private fun hideSystemBars() {

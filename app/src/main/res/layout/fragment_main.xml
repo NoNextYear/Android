@@ -292,8 +292,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="오늘의 일정"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="27sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/bm_jua"/>
 
         <TextView
             android:id="@+id/todaySchedule"
@@ -309,9 +310,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오늘의 날씨"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_marginTop="30dp" />
+            android:textSize="27sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/bm_jua"/>
 
         <LinearLayout
             android:id="@+id/weatherContainer"
@@ -330,7 +332,9 @@
                 android:layout_height="wrap_content"
                 android:text="서울"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/bm_jua"/>
 
             <ImageView
                 android:id="@+id/weatherIcon"
@@ -344,8 +348,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25°C"
-                android:textSize="24sp"
-                android:gravity="center_vertical" />
+                android:textSize="25sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- 시간별 날씨 예보 -->
@@ -356,7 +361,8 @@
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            >
 
             <LinearLayout
                 android:id="@+id/hourlyForecast"
@@ -365,7 +371,8 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:layout_marginStart="10dp"
-                android:padding="16dp">
+                android:padding="16dp"
+                >
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -373,7 +380,8 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginEnd="5dp">
+                    android:layout_marginEnd="5dp"
+                    >
 
                     <TextView
                         android:id="@+id/hour1"
@@ -382,7 +390,9 @@
                         android:text="오후 3시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon1"
@@ -395,9 +405,11 @@
                         android:id="@+id/temp1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="23°C"
+                        android:text="33°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -415,7 +427,9 @@
                         android:text="오후 4시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon2"
@@ -428,9 +442,11 @@
                         android:id="@+id/temp2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="22°C"
+                        android:text="32°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -448,7 +464,9 @@
                         android:text="오후 5시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon3"
@@ -461,9 +479,11 @@
                         android:id="@+id/temp3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="19°C"
+                        android:text="29°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -481,7 +501,9 @@
                         android:text="오후 6시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon4"
@@ -494,9 +516,11 @@
                         android:id="@+id/temp4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="17°C"
+                        android:text="27°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -514,7 +538,9 @@
                         android:text="오후 7시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon5"
@@ -527,9 +553,11 @@
                         android:id="@+id/temp5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15°C"
+                        android:text="25°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
                 <LinearLayout
@@ -547,7 +575,9 @@
                         android:text="오후 8시"
                         android:textSize="12sp"
                         android:gravity="center"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bm_jua"/>
 
                     <ImageView
                         android:id="@+id/icon6"
@@ -560,9 +590,11 @@
                         android:id="@+id/temp6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="12°C"
+                        android:text="22°C"
                         android:textStyle="bold"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
 
             </LinearLayout>
