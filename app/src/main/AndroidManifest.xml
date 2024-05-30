@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MakeSchedule3Activity"></activity>
+        <activity android:name=".MakeSchedule4Activity"></activity>
+        <activity android:name=".MakeSchedule4CompleteActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,6 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".fragments.ConfirmationActivity" />
+        <activity android:name=".fragments.MakeSchedule6Activity" />
     </application>
 
 </manifest>

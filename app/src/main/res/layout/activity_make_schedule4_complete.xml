@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/make_schedule_complete_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bm_jua"
+        android:text="일정 생성이 완료되었어요"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="150dp"/>
+
+    <TextView
+        android:id="@+id/make_schedule_complete_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tmoney_round_wind_regular"
+        android:text="모든 구성원이 일정 설정을 완료하면 결과를"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/make_schedule_complete_tv"
+        app:layout_constraintTop_toBottomOf="@id/make_schedule_complete_tv"
+        android:layout_marginTop="45dp"/>
+
+    <TextView
+        android:id="@+id/make_schedule_complete_tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tmoney_round_wind_regular"
+        android:text="알려드려요"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/make_schedule_complete_tv"
+        app:layout_constraintTop_toBottomOf="@id/make_schedule_complete_tv2"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_back_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_button"
+        android:fontFamily="@font/tmoney_round_wind_regular"
+        android:text="모임 채팅방으로 돌아가기"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_marginBottom="30dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

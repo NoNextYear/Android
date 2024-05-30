@@ -2,7 +2,15 @@
 <resources>
     <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar" />
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@android:color/white</item> <!-- 배경 색상 설정 -->
+        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowFullscreen">true</item>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    <style name="MyBase.TimePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorControlNormal">@android:color/white</item>
     </style>
 </resources>
