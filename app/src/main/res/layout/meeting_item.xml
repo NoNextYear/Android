@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
 
     <ImageView
         android:id="@+id/circle_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
         android:src="@drawable/ic_circle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/meetingName"
-        android:layout_marginRight="15dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/meetingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="배드민턴 동호회"
-        android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/meetingCount"/>
+        app:layout_constraintEnd_toStartOf="@id/meetingCount"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/meetingCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:text="8"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/meetingName"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="15dp"/>
+        app:layout_constraintStart_toEndOf="@id/meetingName"
+        app:layout_constraintTop_toTopOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
