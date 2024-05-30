@@ -25,6 +25,7 @@
         android:text="윤짱"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:fontFamily="@font/tmoney_round_wind_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/toolbar_username_tv1"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text=" 님 반갑습니다"
         android:textColor="@android:color/white"
+        android:fontFamily="@font/tmoney_round_wind_regular"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@id/toolbar_username_tv"
         app:layout_constraintBottom_toBottomOf="parent"/>

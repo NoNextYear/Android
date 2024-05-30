@@ -23,6 +23,7 @@
         android:text="배드민턴 동호회"
         android:textColor="@color/black"
         android:textSize="16sp"
+        android:fontFamily="@font/tmoney_round_wind_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/meetingCount"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:text="8"
+        android:fontFamily="@font/tmoney_round_wind_regular"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

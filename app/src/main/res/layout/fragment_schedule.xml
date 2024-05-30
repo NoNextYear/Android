@@ -16,6 +16,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:text="일정을 만들 모임을 선택하세요"
+        android:fontFamily="@font/bm_jua"
         android:textColor="@color/black"
         android:textSize="22dp"/>
 
@@ -42,13 +43,23 @@
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/action_button"
+        android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/button_disabled"
+        android:background="@drawable/summit_team_name"
+        android:fontFamily="@font/tmoney_round_wind_regular"
         android:text="만들기"
-        android:textColor="@android:color/white"
-        android:enabled="false" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/end_time_picker"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="다음 페이지 이동 버튼"/>
 
 </LinearLayout>
