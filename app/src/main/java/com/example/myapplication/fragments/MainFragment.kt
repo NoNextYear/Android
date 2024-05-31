@@ -27,6 +27,23 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         hideSystemBars()
         setupWeekCalendar()
+        setupSwipeRefresh()
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            // Your refresh logic here
+            refreshContent()
+        }
+    }
+
+    private fun refreshContent() {
+        // Simulate a refresh operation (e.g., fetch new data from the server)
+        // For demonstration, we simply call setupWeekCalendar again
+        setupWeekCalendar()
+
+        // Stop the refreshing animation once done
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
     private fun setupWeekCalendar() {
