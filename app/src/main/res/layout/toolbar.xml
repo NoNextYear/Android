@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/green"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/menu_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_setting"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="설정"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/toolbar_username_tv"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/toolbar_username_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="윤짱"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/tmoney_round_wind_regular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/toolbar_username_tv1"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/toolbar_username_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 님 반갑습니다"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/tmoney_round_wind_regular"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/toolbar_username_tv"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
