@@ -15,4 +15,12 @@
     <style name="MyBase.TimePicker" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorControlNormal">@android:color/white</item>
     </style>
+    <style name="NumberPickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:divider">@null</item>
+        <item name="android:showDividers">none</item>
+        <item name="colorControlNormal">@color/transparent</item>
+        <item name="android:fontFamily">@font/tmoney_round_wind_regular</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.core.content.ContextCompat
+import com.example.myapplication.R
+import com.example.myapplication.Schedule
 
 
 class ScheduleAdapter (private val onMeetingSelected: (Schedule) -> Unit) :
@@ -47,7 +49,9 @@ class ScheduleAdapter (private val onMeetingSelected: (Schedule) -> Unit) :
             meetingName.text = meeting.name
             meetingCount.text = meeting.count.toString()
 
-            val selectedColor = ContextCompat.getColor(itemView.context, R.color.selected_item_color)
+            val selectedColor = ContextCompat.getColor(itemView.context,
+                R.color.selected_item_color
+            )
             itemView.setBackgroundColor(if (isSelected) selectedColor else Color.TRANSPARENT)
 
             itemView.setOnClickListener { onMeetingSelected(meeting) }
