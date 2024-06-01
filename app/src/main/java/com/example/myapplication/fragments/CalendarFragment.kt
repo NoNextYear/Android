@@ -35,5 +35,6 @@ class CalendarFragment : Fragment() {
 fun testCompose() {
     Surface {
         BasicCalendar(onSelectedDate = {})
+        //MakeSchedule2(onSelectedDate = {})
     }
 }
