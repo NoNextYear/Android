@@ -32,8 +32,9 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
 
             btnDetail.setOnClickListener {
                 // 상세보기 버튼 클릭 시 동작
-                val scheduleDate = "24년 5월 31일"
-                val scheduleTime = "2:00PM ~ 4:00PM"
+                val parts = options[adapterPosition].split("\n")
+                val scheduleDate = parts[1]
+                val scheduleTime = parts.subList(2, parts.size).joinToString("\n")
                 val score = "99점" // 예시 점수
 
                 val dialog = ScheduleDetailDialog.newInstance(scheduleDate, scheduleTime, score)
@@ -48,10 +49,10 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val option = options[position]
-        holder.scheduleRank.text = option
-        holder.scheduleDate.text = "24년 5월 31일"
-        holder.scheduleTime.text = "2:00PM ~ 4:00PM"
+        val parts = options[position].split("\n")
+        holder.scheduleRank.text = parts[0]
+        holder.scheduleDate.text = parts[1]
+        holder.scheduleTime.text = parts.subList(2, parts.size).joinToString("\n")
 
         if (position == selectedPosition) {
             holder.cardView.setCardBackgroundColor(context.resources.getColor(R.color.white))

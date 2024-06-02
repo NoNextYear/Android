@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.MakeSchedule2UiActivity
 import com.example.myapplication.R
 import com.example.myapplication.Schedule
-import com.example.myapplication.ScheduleAdapter
+import com.example.myapplication.adapter.ScheduleAdapter
 import com.example.myapplication.databinding.FragmentScheduleBinding
 
 class ScheduleFragment : Fragment() {
