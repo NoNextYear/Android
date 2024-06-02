@@ -64,6 +64,11 @@ class MakeSchedule6Activity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        // 뒤로 가기 버튼 클릭 리스너 설정
+        binding.backButton.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onDestroy() {
