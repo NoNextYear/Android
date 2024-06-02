@@ -1,12 +1,13 @@
 package com.example.myapplication.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.MakeSchedule2UiActivity
 import com.example.myapplication.R
 import com.example.myapplication.Schedule
 import com.example.myapplication.adapter.ScheduleAdapter
@@ -52,7 +53,9 @@ class ScheduleFragment : Fragment() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setBackgroundResource(R.drawable.button_disabled)
         binding.submitButton.setOnClickListener {
-            Toast.makeText(context, "Button Clicked!", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "Button Clicked!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, MakeSchedule2UiActivity::class.java)
+            startActivity(intent)
         }
     }
 

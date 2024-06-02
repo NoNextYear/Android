@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.fragment.app.Fragment
+import com.example.myapplication.compose.BasicCalendar
 import com.example.myapplication.databinding.FragmentCalendarBinding
 
 
@@ -34,6 +34,7 @@ class CalendarFragment : Fragment() {
 @Composable
 fun testCompose() {
     Surface {
-        Text("test")
+        BasicCalendar(onSelectedDate = {})
+        //MakeSchedule2(onSelectedDate = {})
     }
 }
