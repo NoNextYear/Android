@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MakeSchedule3Activity"></activity>
+        <activity android:name=".MakeSchedule2Activity"></activity>
+        <activity android:name=".MakeSchedule2UiActivity"/>
         <activity android:name=".MakeSchedule4Activity"></activity>
         <activity android:name=".MakeSchedule4CompleteActivity"></activity>
         <activity
