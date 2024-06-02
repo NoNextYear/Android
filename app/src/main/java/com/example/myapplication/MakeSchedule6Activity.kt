@@ -1,14 +1,14 @@
-package com.example.myapplication.fragments
-
+package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.R
 import com.example.myapplication.adapter.ScheduleOptionAdapter
 import com.example.myapplication.databinding.ActivityMakeSchedule6Binding
+import com.example.myapplication.fragments.ConfirmationActivity
+import com.example.myapplication.fragments.DeleteConfirmationDialog
 
 class MakeSchedule6Activity : AppCompatActivity() {
 
@@ -29,8 +29,14 @@ class MakeSchedule6Activity : AppCompatActivity() {
         // 액션바 숨기기
         supportActionBar?.hide()
 
-        // 예시 데이터 생성
-        val options = listOf("1안 추천!", "2안 추천!", "3안 추천!")
+        // 인텐트에서 선택된 시간 범위 가져오기
+        val options = mutableListOf<String>()
+        for (i in 0..2) {
+            val date = intent.getStringExtra("date_$i")
+            val timeRanges = intent.getStringArrayListExtra("timeRanges_$i") ?: emptyList()
+            val formattedTimeRanges = timeRanges.joinToString("\n")
+            options.add("${i + 1}안 추천!\n$date\n$formattedTimeRanges")
+        }
 
         // 어댑터 초기화 및 RecyclerView 설정
         val adapter = ScheduleOptionAdapter(this, options)
@@ -46,8 +52,15 @@ class MakeSchedule6Activity : AppCompatActivity() {
         // 선택하기 버튼 클릭 리스너 설정
         binding.btnSelect.setOnClickListener {
             val selectedOption = adapter.getSelectedOption() ?: "선택한 일정 옵션 텍스트" // 실제 선택한 옵션 텍스트로 변경 필요
+            val parts = selectedOption.split("\n")
+            val description = parts[0]
+            val date = parts[1]
+            val time = parts.subList(2, parts.size).joinToString("\n")
+
             val intent = Intent(this, ConfirmationActivity::class.java).apply {
-                putExtra("selectedOption", selectedOption)
+                putExtra("selectedOption", description)
+                putExtra("selectedDate", date)
+                putExtra("selectedTime", time)
             }
             startActivity(intent)
         }

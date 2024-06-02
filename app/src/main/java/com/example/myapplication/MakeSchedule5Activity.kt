@@ -1,11 +1,13 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.NumberPicker
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.adapter.ItemScheduleAdapter
 
 class MakeSchedule5Activity : AppCompatActivity() {
 
@@ -24,7 +26,7 @@ class MakeSchedule5Activity : AppCompatActivity() {
 
         numberPicker.minValue = 1
         numberPicker.maxValue = 5
-        numberPicker.value = 2
+        numberPicker.value = 1
 
         timeRangeAdapter = ItemScheduleAdapter(numberPicker.value)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -35,7 +37,13 @@ class MakeSchedule5Activity : AppCompatActivity() {
         }
 
         submitButton.setOnClickListener {
-            // 완료 버튼 클릭 시의 동작을 여기에 구현
+            val selectedTimes = timeRangeAdapter.getSelectedTimes()
+            val intent = Intent(this, MakeSchedule6Activity::class.java)
+            selectedTimes.forEachIndexed { index, pair ->
+                intent.putExtra("date_$index", pair.first)
+                intent.putStringArrayListExtra("timeRanges_$index", ArrayList(pair.second))
+            }
+            startActivity(intent)
         }
     }
 }

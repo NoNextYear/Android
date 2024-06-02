@@ -66,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:theme="@style/NumberPickerStyle"
             app:layout_constraintTop_toBottomOf="@id/instruction_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -113,10 +114,5 @@
             android:layout_marginBottom="30dp"
             android:contentDescription="다음 페이지 이동 버튼"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
