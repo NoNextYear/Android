@@ -139,23 +139,47 @@ fun DisplaySelectedDates(startSelectedDate: LocalDate?, endSelectedDate: LocalDa
         when {
             startSelectedDate == null -> {
                 Text(
-                    text = "선택한 날짜: 없음",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Normal
+                    text = "선택한 날짜 ",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                )
+                Text(
+                    text = "없음 ",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
                 )
             }
             endSelectedDate == null -> {
                 Text(
-                    text = "선택한 날짜: ${startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))}",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Normal
+                    text = "선택한 날짜 ",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                )
+                Text(
+                    text = startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일")),
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
                 )
             }
             else -> {
                 Text(
-                    text = "선택한 날짜: ${startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))} ~ ${endSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))}",
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Normal
+                    text = "선택한 날짜 ",
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                )
+                Text(
+                    text = "${startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))} ~ ${endSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))}",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.Gray,
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
                 )
             }
         }
