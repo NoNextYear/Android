@@ -20,30 +20,22 @@ class MakeSchedule4Activity : AppCompatActivity() {
             supportActionBar?.hide()
 
             val teamNameTextView: TextView = findViewById(R.id.team_name_layout)
-            val startDateTextView: TextView = findViewById(R.id.select_start_day_layout)
-            val endDateTextView: TextView = findViewById(R.id.select_end_day_layout)
             val startTimeTextView: TextView = findViewById(R.id.select_start_time_layout)
             val endTimeTextView: TextView = findViewById(R.id.select_end_time_layout)
             val backButton: ImageButton = findViewById(R.id.back_btn)
             val submitButton: AppCompatButton = findViewById(R.id.submit_button)
 
             val teamName = intent.getStringExtra("teamName")
-            val startDate = intent.getStringExtra("startDate")
-            val endDate = intent.getStringExtra("endDate")
             val startTime = intent.getStringExtra("startTime")
             val endTime = intent.getStringExtra("endTime")
 
             teamNameTextView.text = teamName
-            startDateTextView.text = startDate ?: "없음"
-            endDateTextView.text = endDate ?: "없음"
             startTimeTextView.text = startTime
             endTimeTextView.text = endTime
 
             backButton.setOnClickListener {
                 val intent = Intent(this, MakeSchedule3Activity::class.java).apply {
                     putExtra("teamName", teamName)
-                    putExtra("startDate", startDate)
-                    putExtra("endDate", endDate)
                     putExtra("startTime", startTime)
                     putExtra("endTime", endTime)
                 }
