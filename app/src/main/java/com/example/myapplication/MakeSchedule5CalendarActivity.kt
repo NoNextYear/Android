@@ -22,20 +22,27 @@ class MakeSchedule5CalendarActivity : AppCompatActivity() {
                 )
         supportActionBar?.hide()
         binding = ActivityMakeSchedule5CalendarBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.apply {
             composeView.setContent {
                 MaterialTheme {
                     MakeSchedule5Calendar(onSelectedDate = { startDate, endDate ->
                         selectedDates.clear()
-                        selectedDates.add(startDate)
-                        endDate?.let {
-                            selectedDates.add(it)
+                        var currentDate = startDate
+                        if (endDate != null) {
+                            while (!currentDate.isAfter(endDate)) {
+                                selectedDates.add(currentDate)
+                                currentDate = currentDate.plusDays(1)
+                            }
+                        } else {
+                            selectedDates.add(startDate)
                         }
                     })
                 }
             }
         }
-        setContentView(binding.root)
+
         setupButton()
     }
 
@@ -43,13 +50,16 @@ class MakeSchedule5CalendarActivity : AppCompatActivity() {
         binding.submitButton.isEnabled = true
         binding.submitButton.setBackgroundResource(R.drawable.button_enabled)
         binding.submitButton.setOnClickListener {
-            val intent = Intent(this, MakeSchedule5Activity::class.java).apply {
-                selectedDates.forEachIndexed { index, date ->
-                    putExtra("date_$index", date.toString())
+            if (selectedDates.isNotEmpty()) {
+                val intent = Intent(this, MakeSchedule5Activity::class.java).apply {
+                    selectedDates.forEachIndexed { index, date ->
+                        putExtra("date_$index", date.toString())
+                    }
+                    putExtra("date_count", selectedDates.size)
+                    putExtra("current_index", 0) // 시작 인덱스 초기화
                 }
-                putExtra("date_count", selectedDates.size)
+                startActivity(intent)
             }
-            startActivity(intent)
         }
     }
 }

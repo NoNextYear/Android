@@ -52,7 +52,7 @@ fun MakeSchedule5Calendar(
             fontSize = 22.sp,
             fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
         )
-        Spacer(modifier = Modifier.height(16.dp)) // 텍스트와 달력 사이에 여백 추가
+        Spacer(modifier = Modifier.height(16.dp))
         HorizontalPager(
             state = pagerState
         ) { page ->
@@ -89,7 +89,6 @@ fun MakeSchedule5Calendar(
     }
 }
 
-
 @Composable
 fun CalendarMonthItem5(
     modifier: Modifier = Modifier,
@@ -104,10 +103,10 @@ fun CalendarMonthItem5(
     Column(modifier = modifier) {
 //        DayOfWeek()
         LazyVerticalGrid(
+            columns = GridCells.Fixed(7),
             contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp), // 그리드 아이템 사이에 여백 추가
             horizontalArrangement = Arrangement.spacedBy(8.dp), // 각 아이템 간의 가로 간격
-            verticalArrangement = Arrangement.spacedBy(8.dp), // 각 아이템 간의 세로 간격
-            columns = GridCells.Fixed(7)
+            verticalArrangement = Arrangement.spacedBy(8.dp) // 각 아이템 간의 세로 간격
         ) {
             for (i in 1 until firstDayOfWeek) {
                 item {

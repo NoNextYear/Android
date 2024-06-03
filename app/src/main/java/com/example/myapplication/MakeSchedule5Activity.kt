@@ -93,7 +93,9 @@ class MakeSchedule5Activity : AppCompatActivity() {
                 putExtras(this@MakeSchedule5Activity.intent.extras ?: Bundle())
                 putExtra("current_index", currentIndex + 1)
                 putExtra("date_${currentIndex}", selectedDates[currentIndex].toString())
-                putStringArrayListExtra("timeRanges_${currentIndex}", ArrayList(selectedTimes))
+                selectedTimes.forEachIndexed { index, pair ->
+                    putExtra("timeRange_${currentIndex}_$index", pair.toString())
+                }
             }
             startActivity(intent)
         }
