@@ -7,9 +7,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.MaterialTheme
 import com.example.myapplication.databinding.ActivityMakeschedule2Binding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MakeSchedule2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityMakeschedule2Binding
+    private var selectedStartDate: LocalDate? = null
+    private var selectedEndDate: LocalDate? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = (
@@ -22,7 +27,10 @@ class MakeSchedule2Activity : AppCompatActivity() {
         binding.apply {
             composeView.setContent {
                 MaterialTheme {
-                    MakeSchedule2(onSelectedDate = {})
+                    MakeSchedule2(onSelectedDate = {startDate, endDate ->
+                        selectedStartDate = startDate
+                        selectedEndDate = endDate
+                    })
                 }
             }
         }
@@ -35,7 +43,11 @@ class MakeSchedule2Activity : AppCompatActivity() {
         binding.btnNextMakeSchedule2.isEnabled = true
         binding.btnNextMakeSchedule2.setBackgroundResource(R.drawable.button_enabled)
         binding.btnNextMakeSchedule2.setOnClickListener {
-            val intent = Intent(this, MakeSchedule3Activity::class.java)
+            val intent = Intent(this, MakeSchedule3Activity::class.java).apply {
+                putExtra("teamName", intent.getStringExtra("teamName"))
+                putExtra("startDate", selectedStartDate?.format(DateTimeFormatter.ofPattern("yy년 M월 d일")))
+                putExtra("endDate", selectedEndDate?.format(DateTimeFormatter.ofPattern("yy년 M월 d일")))
+            }
             startActivity(intent)
         }
     }

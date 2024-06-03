@@ -39,6 +39,7 @@
         </activity>
         <activity android:name=".fragments.ConfirmationActivity" />
         <activity android:name=".MakeSchedule6Activity" />
+        <activity android:name=".MakeSchedule5CalendarActivity" />
     </application>
 
 </manifest>

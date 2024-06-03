@@ -31,7 +31,10 @@ class MakeSchedule2UiActivity : AppCompatActivity() {
         binding.submitButton.isEnabled = false
         binding.submitButton.setBackgroundResource(R.drawable.button_disabled)
         binding.submitButton.setOnClickListener {
-            val intent = Intent(this, MakeSchedule2Activity::class.java)
+            val teamName = binding.teamNameEt.text.toString()
+            val intent = Intent(this, MakeSchedule2Activity::class.java).apply {
+                putExtra("teamName", teamName)
+            }
             startActivity(intent)
         }
     }

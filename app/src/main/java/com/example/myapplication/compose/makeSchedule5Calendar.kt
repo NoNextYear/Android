@@ -1,31 +1,13 @@
-import android.util.Log
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
+package com.example.myapplication.compose
+
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.pager.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -34,32 +16,18 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.*
 import com.example.myapplication.R
-import com.example.myapplication.compose.BasicCalendarConfig
-import com.example.myapplication.compose.CalendarHeader
-import com.example.myapplication.compose.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
-import java.time.format.DateTimeFormatter
-import java.util.Locale
-
-@Preview
-@Composable
-fun TestCalendar2() {
-    MakeSchedule2(onSelectedDate = { startDate, endDate ->
-        Log.d("TestCalendar2", "Start Date: $startDate, End Date: $endDate")
-    })
-}
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MakeSchedule2(
+fun MakeSchedule5Calendar(
     modifier: Modifier = Modifier,
     currentDate: LocalDate = LocalDate.now(),
     config: BasicCalendarConfig = BasicCalendarConfig(),
-    onSelectedDate: (LocalDate, LocalDate) -> Unit
+    onSelectedDate: (LocalDate, LocalDate?) -> Unit
 ) {
     val initialPage = (currentDate.year - config.yearRange.first) * 12 + currentDate.monthValue - 1
     var startSelectedDate by remember { mutableStateOf<LocalDate?>(null) }
@@ -76,27 +44,15 @@ fun MakeSchedule2(
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_back),
-            contentDescription = null,
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(start = 16.dp, top = 10.dp)
-        )
-
         Text(
-            text = "날짜를 선택해주세요",
+            text = "가능한 시간대를 입력할 날짜 선택",
             modifier = Modifier
                 .align(Alignment.Start)
                 .padding(start = 16.dp, top = 10.dp),
             fontSize = 22.sp,
             fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
         )
-        val headerText = currentMonth.format(DateTimeFormatter.ofPattern("MMM", Locale.ENGLISH))
-        CalendarHeader(
-            modifier = Modifier.padding(top = 0.dp, bottom = 10.dp),
-            text = headerText
-        )
+        Spacer(modifier = Modifier.height(16.dp))
         HorizontalPager(
             state = pagerState
         ) { page ->
@@ -106,7 +62,7 @@ fun MakeSchedule2(
                 1
             )
             if (page in pagerState.currentPage - 1..pagerState.currentPage + 1) {
-                CalendarMonthItem2(
+                CalendarMonthItem5(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 42.dp),
@@ -125,79 +81,16 @@ fun MakeSchedule2(
                                 endSelectedDate = temp
                             }
                         }
+                        onSelectedDate(startSelectedDate!!, endSelectedDate)
                     }
                 )
             }
         }
-        DisplaySelectedDates(startSelectedDate, endSelectedDate)
     }
 }
 
 @Composable
-fun DisplaySelectedDates(startSelectedDate: LocalDate?, endSelectedDate: LocalDate?) {
-    Column(
-        modifier = Modifier
-            .padding(top = 16.dp)
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        when {
-            startSelectedDate == null -> {
-                Text(
-                    text = "선택한 날짜 ",
-                    fontSize = 22.sp,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
-                )
-                Text(
-                    text = "없음 ",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
-                )
-            }
-            endSelectedDate == null -> {
-                Text(
-                    text = "선택한 날짜 ",
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
-                )
-                Text(
-                    text = startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일")),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
-                )
-            }
-            else -> {
-                Text(
-                    text = "선택한 날짜 ",
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
-                )
-                Text(
-                    text = "${startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))} ~ ${endSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))}",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
-                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun CalendarMonthItem2(
+fun CalendarMonthItem5(
     modifier: Modifier = Modifier,
     currentDate: LocalDate,
     startSelectedDate: LocalDate?,
@@ -208,10 +101,12 @@ fun CalendarMonthItem2(
     val firstDayOfWeek by remember { mutableStateOf(currentDate.dayOfWeek.value) }
     val days by remember { mutableStateOf(IntRange(1, lastDay).toList()) }
     Column(modifier = modifier) {
-        DayOfWeek()
+//        DayOfWeek()
         LazyVerticalGrid(
-            modifier = Modifier.height(200.dp),
-            columns = GridCells.Fixed(7)
+            columns = GridCells.Fixed(7),
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp), // 그리드 아이템 사이에 여백 추가
+            horizontalArrangement = Arrangement.spacedBy(8.dp), // 각 아이템 간의 가로 간격
+            verticalArrangement = Arrangement.spacedBy(8.dp) // 각 아이템 간의 세로 간격
         ) {
             for (i in 1 until firstDayOfWeek) {
                 item {
@@ -228,7 +123,7 @@ fun CalendarMonthItem2(
                     startSelectedDate != null && endSelectedDate != null &&
                             !date.isBefore(startSelectedDate) && !date.isAfter(endSelectedDate)
                 } || (startSelectedDate != null && endSelectedDate == null && date == startSelectedDate)
-                CalendarDay2(
+                CalendarDay5(
                     modifier = Modifier.padding(top = 10.dp),
                     date = date,
                     isToday = date == LocalDate.now(),
@@ -241,7 +136,7 @@ fun CalendarMonthItem2(
 }
 
 @Composable
-fun CalendarDay2(
+fun CalendarDay5(
     modifier: Modifier = Modifier,
     date: LocalDate,
     isToday: Boolean,
