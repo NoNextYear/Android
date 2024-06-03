@@ -1,3 +1,4 @@
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,6 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,7 +48,9 @@ import java.util.Locale
 @Preview
 @Composable
 fun TestCalendar2() {
-    MakeSchedule2(onSelectedDate = {})
+    MakeSchedule2(onSelectedDate = { startDate, endDate ->
+        Log.d("TestCalendar2", "Start Date: $startDate, End Date: $endDate")
+    })
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -54,7 +59,7 @@ fun MakeSchedule2(
     modifier: Modifier = Modifier,
     currentDate: LocalDate = LocalDate.now(),
     config: BasicCalendarConfig = BasicCalendarConfig(),
-    onSelectedDate: (LocalDate) -> Unit
+    onSelectedDate: (LocalDate, LocalDate) -> Unit
 ) {
     val initialPage = (currentDate.year - config.yearRange.first) * 12 + currentDate.monthValue - 1
     var startSelectedDate by remember { mutableStateOf<LocalDate?>(null) }
@@ -85,7 +90,7 @@ fun MakeSchedule2(
                 .align(Alignment.Start)
                 .padding(start = 16.dp, top = 10.dp),
             fontSize = 22.sp,
-            fontWeight = FontWeight.Bold
+            fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
         )
         val headerText = currentMonth.format(DateTimeFormatter.ofPattern("MMM", Locale.ENGLISH))
         CalendarHeader(
@@ -141,15 +146,16 @@ fun DisplaySelectedDates(startSelectedDate: LocalDate?, endSelectedDate: LocalDa
                 Text(
                     text = "선택한 날짜 ",
                     fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
                 )
                 Text(
                     text = "없음 ",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
                 )
             }
             endSelectedDate == null -> {
@@ -157,14 +163,16 @@ fun DisplaySelectedDates(startSelectedDate: LocalDate?, endSelectedDate: LocalDa
                     text = "선택한 날짜 ",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
                 )
                 Text(
                     text = startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일")),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
                 )
             }
             else -> {
@@ -172,14 +180,16 @@ fun DisplaySelectedDates(startSelectedDate: LocalDate?, endSelectedDate: LocalDa
                     text = "선택한 날짜 ",
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
                 )
                 Text(
                     text = "${startSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))} ~ ${endSelectedDate.format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"))}",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
-                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp)
+                    modifier = Modifier.align(Alignment.Start).padding(top = 13.dp,start = 15.dp),
+                    fontFamily = FontFamily(Font(R.font.tmoney_round_wind_regular)) // 폰트 적용 부분
                 )
             }
         }

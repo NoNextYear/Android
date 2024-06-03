@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +26,15 @@ class MakeSchedule3Activity : AppCompatActivity() {
         val startTimePicker: TimePicker = findViewById(R.id.start_time_picker)
         val endTimePicker: TimePicker = findViewById(R.id.end_time_picker)
         val submitButton: AppCompatButton = findViewById(R.id.submit_button)
+        val backBtn: ImageButton = findViewById(R.id.back_btn)
 
         startTimePicker.setIs24HourView(false)
         endTimePicker.setIs24HourView(false)
+
+        backBtn.setOnClickListener{
+            val intent = Intent(this, MakeSchedule2Activity::class.java)
+            startActivity(intent)
+        }
 
         submitButton.setOnClickListener {
             Log.d("MakeSchedule3Activity", "Submit button clicked")
@@ -47,9 +54,17 @@ class MakeSchedule3Activity : AppCompatActivity() {
                 val startTime = formatTime(startHour, startMinute)
                 val endTime = formatTime(endHour, endMinute)
 
-                val intent = Intent(this, MakeSchedule4Activity::class.java)
-                intent.putExtra("startTime", startTime)
-                intent.putExtra("endTime", endTime)
+                val teamName = intent.getStringExtra("teamName")
+                val startDate = intent.getStringExtra("startDate")
+                val endDate = intent.getStringExtra("endDate")
+
+                val intent = Intent(this, MakeSchedule4Activity::class.java).apply {
+                    putExtra("teamName", teamName)
+                    putExtra("startDate", startDate)
+                    putExtra("endDate", endDate)
+                    putExtra("startTime", startTime)
+                    putExtra("endTime", endTime)
+                }
                 startActivity(intent)
                 Log.d("MakeSchedule3Activity", "Starting MakeSchedule4Activity")
             }

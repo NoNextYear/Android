@@ -1,4 +1,5 @@
 package com.example.myapplication.compose
+
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.*
@@ -10,6 +11,7 @@ import androidx.compose.ui.*
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -63,7 +65,7 @@ fun MakeSchedule5Calendar(
                 .padding(start = 16.dp, top = 10.dp),
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Default // 폰트 적용 부분
+            fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
         )
         HorizontalPager(
             state = pagerState
