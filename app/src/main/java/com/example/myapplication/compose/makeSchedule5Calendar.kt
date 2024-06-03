@@ -21,19 +21,13 @@ import com.example.myapplication.R
 import java.time.LocalDate
 import java.time.YearMonth
 
-@Preview
-@Composable
-fun TestCalendar5() {
-    MakeSchedule5Calendar(onSelectedDate = {})
-}
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MakeSchedule5Calendar(
     modifier: Modifier = Modifier,
     currentDate: LocalDate = LocalDate.now(),
     config: BasicCalendarConfig = BasicCalendarConfig(),
-    onSelectedDate: (LocalDate) -> Unit
+    onSelectedDate: (LocalDate, LocalDate?) -> Unit
 ) {
     val initialPage = (currentDate.year - config.yearRange.first) * 12 + currentDate.monthValue - 1
     var startSelectedDate by remember { mutableStateOf<LocalDate?>(null) }
@@ -50,23 +44,15 @@ fun MakeSchedule5Calendar(
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_back),
-            contentDescription = null,
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(start = 16.dp, top = 10.dp)
-        )
-
         Text(
             text = "가능한 시간대를 입력할 날짜 선택",
             modifier = Modifier
                 .align(Alignment.Start)
                 .padding(start = 16.dp, top = 10.dp),
             fontSize = 22.sp,
-            fontWeight = FontWeight.Bold,
             fontFamily = FontFamily(Font(R.font.bm_jua)) // 폰트 적용 부분
         )
+        Spacer(modifier = Modifier.height(16.dp)) // 텍스트와 달력 사이에 여백 추가
         HorizontalPager(
             state = pagerState
         ) { page ->
@@ -95,12 +81,14 @@ fun MakeSchedule5Calendar(
                                 endSelectedDate = temp
                             }
                         }
+                        onSelectedDate(startSelectedDate!!, endSelectedDate)
                     }
                 )
             }
         }
     }
 }
+
 
 @Composable
 fun CalendarMonthItem5(
@@ -114,9 +102,11 @@ fun CalendarMonthItem5(
     val firstDayOfWeek by remember { mutableStateOf(currentDate.dayOfWeek.value) }
     val days by remember { mutableStateOf(IntRange(1, lastDay).toList()) }
     Column(modifier = modifier) {
-        DayOfWeek()
+//        DayOfWeek()
         LazyVerticalGrid(
-            modifier = Modifier.height(200.dp),
+            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp), // 그리드 아이템 사이에 여백 추가
+            horizontalArrangement = Arrangement.spacedBy(8.dp), // 각 아이템 간의 가로 간격
+            verticalArrangement = Arrangement.spacedBy(8.dp), // 각 아이템 간의 세로 간격
             columns = GridCells.Fixed(7)
         ) {
             for (i in 1 until firstDayOfWeek) {

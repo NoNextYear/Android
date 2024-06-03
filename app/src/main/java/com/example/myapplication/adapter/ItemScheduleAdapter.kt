@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemScheduleTimeBinding
+import java.time.LocalDate
+class ItemScheduleAdapter(
+    private val selectedDate: LocalDate // 하나의 날짜만 받도록 수정
+) : RecyclerView.Adapter<ItemScheduleAdapter.TimeRangeViewHolder>() {
 
-class ItemScheduleAdapter(private var rangeCount: Int) :
-    RecyclerView.Adapter<ItemScheduleAdapter.TimeRangeViewHolder>() {
-
-    private val selectedTimes: MutableList<Pair<String, List<String>>> = mutableListOf()
+    private var rangeCount: Int = 1
+    private val selectedTimes: MutableList<String> = MutableList(rangeCount) { "" } // 하나의 날짜에 대한 시간 범위만 관리
 
     class TimeRangeViewHolder(val binding: ItemScheduleTimeBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -19,23 +21,20 @@ class ItemScheduleAdapter(private var rangeCount: Int) :
     }
 
     override fun onBindViewHolder(holder: TimeRangeViewHolder, position: Int) {
-        // TimeRangeViewHolder 바인딩 처리
-        // 예: holder.binding.textView.text = "시간 범위 ${position + 1}"
     }
 
     override fun getItemCount(): Int = rangeCount
 
     fun updateRangeCount(newCount: Int) {
         rangeCount = newCount
+        selectedTimes.clear()
+        repeat(newCount) {
+            selectedTimes.add("")
+        }
         notifyDataSetChanged()
     }
 
-    fun getSelectedTimes(): List<Pair<String, List<String>>> {
-        // 예시 데이터 넘김
-        return listOf(
-            Pair("2024년6월1일", listOf("10:00AM-11:00AM")),
-            Pair("2024년6월2일", listOf("1:00PM-2:00PM")),
-            Pair("2024년6월3일", listOf("3:00PM-4:00PM"))
-        )
+    fun getSelectedTimes(): List<String> {
+        return selectedTimes
     }
 }

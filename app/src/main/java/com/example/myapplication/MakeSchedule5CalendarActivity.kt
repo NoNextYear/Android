@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.MaterialTheme
 import com.example.myapplication.compose.MakeSchedule5Calendar
 import com.example.myapplication.databinding.ActivityMakeSchedule5CalendarBinding
+import java.time.LocalDate
 
 class MakeSchedule5CalendarActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakeSchedule5CalendarBinding
+    private val selectedDates = mutableListOf<LocalDate>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,13 @@ class MakeSchedule5CalendarActivity : AppCompatActivity() {
         binding.apply {
             composeView.setContent {
                 MaterialTheme {
-                    MakeSchedule5Calendar(onSelectedDate = {})
+                    MakeSchedule5Calendar(onSelectedDate = { startDate, endDate ->
+                        selectedDates.clear()
+                        selectedDates.add(startDate)
+                        endDate?.let {
+                            selectedDates.add(it)
+                        }
+                    })
                 }
             }
         }
@@ -35,7 +43,12 @@ class MakeSchedule5CalendarActivity : AppCompatActivity() {
         binding.submitButton.isEnabled = true
         binding.submitButton.setBackgroundResource(R.drawable.button_enabled)
         binding.submitButton.setOnClickListener {
-            val intent = Intent(this, MakeSchedule3Activity::class.java)
+            val intent = Intent(this, MakeSchedule5Activity::class.java).apply {
+                selectedDates.forEachIndexed { index, date ->
+                    putExtra("date_$index", date.toString())
+                }
+                putExtra("date_count", selectedDates.size)
+            }
             startActivity(intent)
         }
     }
