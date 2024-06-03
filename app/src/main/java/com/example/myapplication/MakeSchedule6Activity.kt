@@ -9,6 +9,7 @@ import com.example.myapplication.adapter.ScheduleOptionAdapter
 import com.example.myapplication.databinding.ActivityMakeSchedule6Binding
 import com.example.myapplication.fragments.ConfirmationActivity
 import com.example.myapplication.fragments.DeleteConfirmationDialog
+import com.example.myapplication.fragments.ScheduleDetailDialog
 
 class MakeSchedule6Activity : AppCompatActivity() {
 
@@ -29,14 +30,19 @@ class MakeSchedule6Activity : AppCompatActivity() {
         // 액션바 숨기기
         supportActionBar?.hide()
 
-        // 인텐트에서 선택된 시간 범위 가져오기
+        // 인텐트에서 선택된 날짜와 시간 범위 가져오기
         val options = mutableListOf<String>()
-        for (i in 0..2) {
-            val date = intent.getStringExtra("date_$i")
-            val timeRanges = intent.getStringArrayListExtra("timeRanges_$i") ?: emptyList()
-            val formattedTimeRanges = timeRanges.joinToString("\n")
-            options.add("${i + 1}안 추천!\n$date\n$formattedTimeRanges")
-        }
+        val firstDate = intent.getStringExtra("date_0") ?: "2024-06-04"
+        val firstTimeRange = intent.getStringExtra("timeRange_0_0") ?: "2:00PM ~ 4:00PM"
+
+        // 첫 번째 옵션: 인텐트에서 받은 날짜와 시간
+        options.add("1안 추천!\n$firstDate\n10:00PM ~ 12:00PM")
+
+        // 두 번째 옵션: 고정된 날짜와 시간
+        options.add("2안 추천!\n2024-06-04\n10:00PM ~ 11:00PM")
+
+        // 세 번째 옵션: 고정된 날짜와 시간
+        options.add("3안 추천!\n2024-06-06\n10:00AM ~ 11:00AM")
 
         // 어댑터 초기화 및 RecyclerView 설정
         val adapter = ScheduleOptionAdapter(this, options)
@@ -55,7 +61,7 @@ class MakeSchedule6Activity : AppCompatActivity() {
             val parts = selectedOption.split("\n")
             val description = parts[0]
             val date = parts[1]
-            val time = parts.subList(2, parts.size).joinToString("\n")
+            val time = parts[2]
 
             val intent = Intent(this, ConfirmationActivity::class.java).apply {
                 putExtra("selectedOption", description)
@@ -63,6 +69,17 @@ class MakeSchedule6Activity : AppCompatActivity() {
                 putExtra("selectedTime", time)
             }
             startActivity(intent)
+        }
+
+        // 상세보기 버튼 클릭 리스너 설정
+        adapter.setDetailButtonClickListener { position ->
+            val parts = options[position].split("\n")
+            val date = parts[1]
+            val time = parts[2]
+            val score = "99점" // 예시 점수
+
+            val dialog = ScheduleDetailDialog.newInstance(date, time, score, position + 1)
+            dialog.show(supportFragmentManager, "ScheduleDetailDialog")
         }
 
         // 뒤로 가기 버튼 클릭 리스너 설정

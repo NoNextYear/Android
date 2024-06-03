@@ -16,6 +16,7 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
     RecyclerView.Adapter<ScheduleOptionAdapter.ViewHolder>() {
 
     private var selectedPosition: Int = -1
+    private var detailButtonClickListener: ((Int) -> Unit)? = null
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardView: MaterialCardView = view.findViewById(R.id.card_view)
@@ -31,14 +32,7 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
             }
 
             btnDetail.setOnClickListener {
-                // 상세보기 버튼 클릭 시 동작
-                val parts = options[adapterPosition].split("\n")
-                val scheduleDate = parts[1]
-                val scheduleTime = parts.subList(2, parts.size).joinToString("\n")
-                val score = "99점" // 예시 점수
-
-                val dialog = ScheduleDetailDialog.newInstance(scheduleDate, scheduleTime, score)
-                dialog.show((context as FragmentActivity).supportFragmentManager, "ScheduleDetailDialog")
+                detailButtonClickListener?.invoke(adapterPosition)
             }
         }
     }
@@ -52,7 +46,7 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
         val parts = options[position].split("\n")
         holder.scheduleRank.text = parts[0]
         holder.scheduleDate.text = parts[1]
-        holder.scheduleTime.text = parts.subList(2, parts.size).joinToString("\n")
+        holder.scheduleTime.text = parts[2]
 
         if (position == selectedPosition) {
             holder.cardView.setCardBackgroundColor(context.resources.getColor(R.color.white))
@@ -71,5 +65,9 @@ class ScheduleOptionAdapter(private val context: Context, private val options: L
 
     fun getSelectedOption(): String? {
         return if (selectedPosition >= 0) options[selectedPosition] else null
+    }
+
+    fun setDetailButtonClickListener(listener: (Int) -> Unit) {
+        detailButtonClickListener = listener
     }
 }

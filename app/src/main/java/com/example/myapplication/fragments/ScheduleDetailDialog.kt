@@ -29,6 +29,44 @@ class ScheduleDetailDialog : DialogFragment() {
         detailTime.text = arguments?.getString("time") ?: "N/A"
         optimalScore.text = arguments?.getString("score") ?: "N/A"
 
+        // 참가자 정보 설정
+        val selectedOption = arguments?.getInt("selected_option") ?: 1
+        when (selectedOption) {
+            1 -> {
+                view.findViewById<TextView>(R.id.participant1).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant2).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant3).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant4).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant5).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant6).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant7).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant8).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant9).visibility = View.GONE
+            }
+            2 -> {
+                view.findViewById<TextView>(R.id.participant1).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant2).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant3).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant4).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant5).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant6).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant7).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant8).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant9).visibility = View.GONE
+            }
+            3 -> {
+                view.findViewById<TextView>(R.id.participant1).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant2).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant3).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant4).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant5).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant6).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant7).visibility = View.GONE
+                view.findViewById<TextView>(R.id.participant8).visibility = View.VISIBLE
+                view.findViewById<TextView>(R.id.participant9).visibility = View.VISIBLE
+            }
+        }
+
         view.findViewById<Button>(R.id.btn_confirm).setOnClickListener {
             dismiss()
         }
@@ -43,11 +81,12 @@ class ScheduleDetailDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(date: String, time: String, score: String): ScheduleDetailDialog {
+        fun newInstance(date: String, time: String, score: String, selectedOption: Int): ScheduleDetailDialog {
             val args = Bundle()
             args.putString("date", date)
             args.putString("time", time)
             args.putString("score", score)
+            args.putInt("selected_option", selectedOption)
             val fragment = ScheduleDetailDialog()
             fragment.arguments = args
             return fragment

@@ -63,9 +63,93 @@
         android:paddingEnd="20dp"
         android:paddingBottom="16dp"
         app:flexWrap="wrap"
-        app:justifyContent="space_between"/>
+        app:justifyContent="space_between">
+    <!-- 1안 참가자 -->
+    <TextView
+        android:id="@+id/participant1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="윤짱"
+        android:padding="4dp"/>
 
     <TextView
+        android:id="@+id/participant2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="백종원"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/participant3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="손흥민"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/participant4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="이강인"
+        android:padding="4dp"/>
+
+    <!-- 2안 참가자 -->
+    <TextView
+        android:id="@+id/participant5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="백종원"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/participant6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="손흥민"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/participant7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="이강인"
+        android:padding="4dp"/>
+
+    <!-- 3안 참가자 -->
+    <TextView
+        android:id="@+id/participant8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="백종원"
+        android:padding="4dp"/>
+
+    <TextView
+        android:id="@+id/participant9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_circle"
+        android:drawablePadding="8dp"
+        android:text="이연복"
+        android:padding="4dp"/>
+</com.google.android.flexbox.FlexboxLayout>
+
+<TextView
         android:id="@+id/optimal_time_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

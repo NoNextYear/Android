@@ -29,9 +29,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/text_area"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/back_btn_area">
 
         <TextView
@@ -39,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/bm_jua"
             android:text="모임 이름을 입력해주세요"
             android:textColor="@color/black"
@@ -56,7 +54,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:hintEnabled="false"
-            app:layout_constraintTop_toBottomOf="@id/input_team_name">
+            app:layout_constraintTop_toBottomOf="@id/input_team_name"
+            style="@style/CustomTextInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/team_name_et"
@@ -66,7 +65,7 @@
                 android:fontFamily="@font/bm_jua"
                 android:hint="모임 이름을 입력하세요"
                 android:inputType="text"
-                android:padding="16dp" />
+                android:padding="16dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,19 +80,19 @@
             app:layout_constraintEnd_toEndOf="@id/team_name_layout"
             app:layout_constraintTop_toBottomOf="@id/team_name_layout" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/summit_team_name"
             android:enabled="false"
             android:text="다음"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_team_name_under"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="450dp"/>
 

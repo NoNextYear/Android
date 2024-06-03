@@ -23,4 +23,8 @@
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="CustomTextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+    </style>
 </resources>
