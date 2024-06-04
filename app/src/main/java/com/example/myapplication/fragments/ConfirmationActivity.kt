@@ -27,9 +27,12 @@ class ConfirmationActivity : AppCompatActivity() {
 
         // 전달된 데이터를 가져와서 UI에 설정
         val selectedOption = intent.getStringExtra("selectedOption") ?: "N/A"
+        val selectedDate = intent.getStringExtra("selectedDate") ?: "N/A"
+        val selectedTime = intent.getStringExtra("selectedTime") ?: "N/A"
+
         binding.textDescription.text = selectedOption
-        binding.textDate.text = "24년 5월 31일"
-        binding.textTime.text = "2:00PM ~ 4:00PM"
+        binding.textDate.text = selectedDate
+        binding.textTime.text = selectedTime
 
         binding.btnBack.setOnClickListener {
             finish() // 액티비티를 종료하고 이전 화면으로 돌아감
