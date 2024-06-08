@@ -1,8 +1,10 @@
 package com.example.myapplication.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
 import com.example.myapplication.databinding.ActivityConfirmationBinding
 
 class ConfirmationActivity : AppCompatActivity() {
@@ -35,7 +37,8 @@ class ConfirmationActivity : AppCompatActivity() {
         binding.textTime.text = selectedTime
 
         binding.btnBack.setOnClickListener {
-            finish() // 액티비티를 종료하고 이전 화면으로 돌아감
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

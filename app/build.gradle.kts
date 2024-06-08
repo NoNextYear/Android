@@ -57,6 +57,8 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation ("com.google.android.material:material:1.4.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation ("androidx.navigation:navigation-compose:2.5.3")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

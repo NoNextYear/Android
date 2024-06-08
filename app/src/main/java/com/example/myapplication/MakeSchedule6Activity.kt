@@ -36,13 +36,13 @@ class MakeSchedule6Activity : AppCompatActivity() {
         val firstTimeRange = intent.getStringExtra("timeRange_0_0") ?: "2:00PM ~ 4:00PM"
 
         // 첫 번째 옵션: 인텐트에서 받은 날짜와 시간
-        options.add("1안 추천!\n$firstDate\n10:00PM ~ 12:00PM")
+        options.add("1안 추천!\n$firstDate\n12:00PM ~ 13:30PM")
 
         // 두 번째 옵션: 고정된 날짜와 시간
-        options.add("2안 추천!\n2024-06-04\n10:00PM ~ 11:00PM")
+        options.add("2안 추천!\n2024-06-10\n10:00PM ~ 11:00PM")
 
         // 세 번째 옵션: 고정된 날짜와 시간
-        options.add("3안 추천!\n2024-06-06\n10:00AM ~ 11:00AM")
+        options.add("3안 추천!\n2024-06-11\n10:00AM ~ 11:00AM")
 
         // 어댑터 초기화 및 RecyclerView 설정
         val adapter = ScheduleOptionAdapter(this, options)
